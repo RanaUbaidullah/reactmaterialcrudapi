@@ -1,14 +1,19 @@
 {
   "students": [
     {
-      "id": 1,
-      "stuname": "Sonam",
-      "email": "sonam@example.com"
+      "stuname": "ubaidullah",
+      "email": "researchfigma@gmail.com",
+      "id": 4
     },
     {
-      "id": 3,
-      "stuname": "Sumit",
-      "email": "sumit@example.com"
+      "stuname": "abdullah",
+      "email": "admin",
+      "id": 5
+    },
+    {
+      "stuname": "Ubaidullah",
+      "email": "Ubaidullahu448@gmail.com",
+      "id": 6
     }
   ]
 }

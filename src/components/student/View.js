@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   backgroundColor: orange[400],
   color: "white"
  },
- tableHeadCell: {
+ tableHeadCell: { 
   color: "white",
   fontWeight: "bold",
   fontSize: 16
