@@ -2,18 +2,23 @@
   "students": [
     {
       "stuname": "ubaidullah",
-      "email": "researchfigma@gmail.com",
-      "id": 4
+      "email": "Ubaidullahu448@gmail.com",
+      "id": 1
     },
     {
       "stuname": "abdullah",
-      "email": "admin",
-      "id": 5
+      "email": "abdullah@gmai.com",
+      "id": 2
     },
     {
-      "stuname": "Ubaidullah",
-      "email": "Ubaidullahu448@gmail.com",
-      "id": 6
+      "stuname": "saifullah",
+      "email": "saifullah@gmail.com",
+      "id": 3
+    },
+    {
+      "stuname": "admin",
+      "email": "researchfigma@gmail.com",
+      "id": 4
     }
   ]
 }
