@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     async function getStudent() {
     try {
      const student = await axios.get(`http://localhost:3333/students/${id}`)
-     // console.log(student.data);
+     console.log(student);
      setStudent(student.data); 
     } catch (error) { 
      console.log("Something is Wrong");
@@ -86,6 +86,9 @@ const useStyles = makeStyles({
        </Box>
      </Grid>
  </Grid >
+ <Box m={3} textAlign="center">
+    <Button variant="contained" color="primary" onClick={handleClick}>Back to Home</Button>
+   </Box>
    </>
   )
  }

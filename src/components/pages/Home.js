@@ -1,4 +1,6 @@
- import { Typography, Box, makeStyles, Grid, TextField, Button } from "@material-ui/core" 
+ import { Typography, Box, makeStyles, Grid, TextField, Button} from "@material-ui/core"
+ 
+
 import { deepPurple, green } from '@material-ui/core/colors';  
 import List from "../student/List"; 
 import axios from "axios"; 
@@ -30,13 +32,16 @@ const Home = () => {
  } 
   
  async function onFormSubmit(e) {
-  e.preventDefault() 
-  try { 
-   await axios.post(`http://localhost:3333/students`, student) 
-   setStatus(true); 
-  } catch (error) { 
-   console.log("Something is Wrong"); 
-  } 
+
+   if( window.confirm("You want to add this student") ){
+      e.preventDefault() 
+      try { 
+       await axios.post(`http://localhost:3333/students`, student) 
+       setStatus(true); 
+      } catch (error) { 
+       console.log("Something is Wrong"); 
+      }
+   }
  } 
  if (status) { 
   return <Home /> 
@@ -62,7 +67,7 @@ const Home = () => {
         </Grid>
        </Grid>
        <Box m={3}>
- <Button type="submit" variant="contained" color="primary" fullWidth onClick={e => onFormSubmit(e)}>Add</Button>
+ <Button type="submit" variant="contained" color="primary" fullWidth onClick={e => onFormSubmit(e) }>Add</Button>
  </Box>
        </form>
      </Grid>

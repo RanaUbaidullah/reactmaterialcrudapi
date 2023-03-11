@@ -32,6 +32,7 @@ const View = () => {
   getStudent();
  }, [id])
 
+ 
  function handleClick() {
   history.push("/")
  }

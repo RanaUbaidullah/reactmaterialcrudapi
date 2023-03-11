@@ -21,27 +21,26 @@ const useStyles = makeStyles({
 const List = () => {
  const classes = useStyles();
  const [students, setStudents] = useState([]);
-
- useEffect(() => {
-  async function getAllStudent() {
-   try {
-    const students = await axios.get("http://localhost:3333/students")
-    // console.log(students.data);
-    setStudents(students.data);
-   } catch (error) {
-    console.log("Something is Wrong");
+ async function getAllStudent() {
+    try {
+     const students = await axios.get("http://localhost:3333/students")
+     console.log(students.data);
+     setStudents(students.data);
+    } catch (error) {
+     console.log("Something is Wrong");
+    }
    }
-  }
-  getAllStudent();
- }, [])
+ useEffect(() => { getAllStudent(); },[])
 
  const handleDelete = async id => {
-  await axios.delete(`http://localhost:3333/students/${id}`);
-  var newstudent = students.filter((item) => {
-   // console.log(item);
-   return item.id !== id;
-  })
-  setStudents(newstudent);
+ if(window.confirm("You want to Delete this student")){
+    await axios.delete(`http://localhost:3333/students/${id}`);
+    var newstudent = students.filter((item) => {
+     // console.log(item);
+     return item.id !== id;
+    })
+    setStudents(newstudent);
+ }
  }
 
 
@@ -65,7 +64,7 @@ const List = () => {
        students.map((student, i) => {
         return (
          <TableRow key={i}>
-          <TableCell align="center">{i + 1}</TableCell>
+          <TableCell align="center">{student.id}</TableCell>
           <TableCell align="center">{student.stuname}</TableCell>
           <TableCell align="center">{student.email}</TableCell>
           <TableCell align="center">
@@ -76,7 +75,7 @@ const List = () => {
             <IconButton><Link to={`/edit/${student.id}`}><EditIcon /></Link></IconButton>
            </Tooltip>
            <Tooltip title="Delete">
-            <IconButton onClick={() => handleDelete(student.id)}><DeleteIcon color="secondary" /></IconButton>
+            <IconButton onClick={() => handleDelete(student.id) }><DeleteIcon color="secondary" /></IconButton>
            </Tooltip>
           </TableCell>
          </TableRow>
