@@ -1,4 +1,12 @@
  import { Typography, Box, makeStyles, Grid, TextField, Button } from "@material-ui/core"
+
+ import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
 import { deepPurple, green } from '@material-ui/core/colors'; 
 import { useState, useEffect } from "react"; 
 import { useHistory, useParams } from "react-router-dom"; 
@@ -16,9 +24,18 @@ const useStyles = makeStyles({
  });
  
  const Edit = () => {
+  const [open, setOpen] = useState(false);
   const classes = useStyles();
   const { id } = useParams();
   const history = useHistory();
+  const handleClickOpen = (e) => {
+    e.preventDefault()
+       setOpen(true);
+     };
+    
+     const handleClose = () => {
+       setOpen(false);
+     };
   const [student, setStudent] = useState({
    stuname: "",
    email: ""
@@ -48,6 +65,8 @@ const useStyles = makeStyles({
    try {
     await axios.put(`http://localhost:3333/students/${id}`, student)
     history.push("/")
+    setOpen(false)
+
    } catch (error) {
     console.log("Something is Wrong");
    }
@@ -57,6 +76,30 @@ const useStyles = makeStyles({
   } 
    return ( 
    <> 
+    {/* dialog box */}
+  <Dialog
+       
+       open={open}
+      
+       aria-labelledby="responsive-dialog-title"
+     >
+       <DialogTitle id="responsive-dialog-title">
+         {"Use Google's location service?"}
+       </DialogTitle>
+       <DialogContent>
+         <DialogContentText>
+           Aur You sure to add this
+         </DialogContentText>
+       </DialogContent> 
+       <DialogActions>
+         <Button autoFocus onClick={handleClose}>
+           Cancel
+         </Button>
+         <Button  autoFocus onClick={e => onFormSubmit(e)}>
+           Add
+         </Button>
+       </DialogActions>
+     </Dialog>
    <Box textAlign="center" p={2} className={classes.headingColor} mb={2}> 
      <Typography variant="h2">Ubaidullah</Typography> 
     </Box>
@@ -79,7 +122,7 @@ const useStyles = makeStyles({
         </Grid>
        </Grid>
        <Box m={3}>
-        <Button type="button" variant="contained" color="primary" fullWidth onClick={e => onFormSubmit(e)}> Update </Button>
+        <Button type="button" variant="contained" color="primary" fullWidth onClick={e => handleClickOpen(e)}> Update </Button>
        </Box>
       </form>
        <Box m={3} textAlign="center">
