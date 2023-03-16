@@ -22,7 +22,12 @@ const useStyles = makeStyles({
 }) 
  
 const Home = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(
+    {
+      stuname:"",
+      email:""
+    }
+  );
   var num = 0;
    const [open, setOpen] = useState(false);
   
@@ -38,12 +43,15 @@ const Home = () => {
    ...student, 
    [e.target.name]: e.target.value 
   })
-  setValue(e.target.value)
+  setValue({...value,[e.target.name]: e.target.value} )
  } 
  const handleClickOpen = (e) => {
 e.preventDefault()
    setOpen(true);
-   if(value===""){
+   if(value.email===""){
+    num = 1
+   }
+   if(value.stuname===""){
     num = 1
    }
    if(num){    
@@ -107,11 +115,11 @@ e.preventDefault()
       <form noValidate>
        <Grid container spacing={2}>
         <Grid item xs={12}>
-         <TextField autoComplete="stuname" error={!value} name="stuname" variant="outlined" required fullWidth id="stuname" label="Name" onChange={e => onTextFieldChange(e)}
+         <TextField autoComplete="stuname" error={!value.stuname} name="stuname" variant="outlined" required fullWidth id="stuname" label="Name" onChange={e => onTextFieldChange(e)}
          />
  </Grid>
         <Grid item xs={12}>
-         <TextField autoComplete="email"  name="email" variant="outlined" required fullWidth id="email" label="Email Address" onChange={e => onTextFieldChange(e)} />
+         <TextField autoComplete="email" error={!value.email}  name="email" variant="outlined" required fullWidth id="email" label="Email Address" onChange={e => onTextFieldChange(e)} />
         </Grid>
        </Grid>
        <Box m={3}>
