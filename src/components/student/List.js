@@ -47,6 +47,7 @@ const List = () => {
          console.log("Something is Wrong");
       }
     }
+    
    useEffect(() => { getAllStudent(); }, [])
 
    const handleDelete = async id => {
