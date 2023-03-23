@@ -67,7 +67,7 @@ e.preventDefault()
  
       e.preventDefault() 
       try { 
-       await axios.post(`http://localhost:3333/students`, student) 
+       await axios.post(`http://localhost:3232/students`, student) 
        setStatus(true); 
        setOpen(false)
       } catch (error) { 
@@ -88,7 +88,7 @@ e.preventDefault()
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          {"Use Google's location service?"}
+          {"Click ok to add the file!"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>

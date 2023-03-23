@@ -39,7 +39,7 @@ const List = () => {
  
    async function getAllStudent() {
       try {
-         const students = await axios.get("http://localhost:3333/students")
+         const students = await axios.get("http://localhost:3232/students")
          console.log(students.data);
          setStudents(students.data);
          
@@ -52,7 +52,7 @@ const List = () => {
 
    const handleDelete = async id => {
  
-         await axios.delete(`http://localhost:3333/students/${id}`);
+         await axios.delete(`http://localhost:3232/students/${id}`);
          var newstudent = students.filter((item) => {
             // console.log(item);
             return item.id !== id;

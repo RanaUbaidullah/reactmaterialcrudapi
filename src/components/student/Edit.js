@@ -43,7 +43,7 @@ const useStyles = makeStyles({
   useEffect(() => {
     async function getStudent() {
     try {
-     const student = await axios.get(`http://localhost:3333/students/${id}`)
+     const student = await axios.get(`http://localhost:3232/students/${id}`)
      console.log(student);
      setStudent(student.data); 
     } catch (error) { 
@@ -63,7 +63,7 @@ const useStyles = makeStyles({
   async function onFormSubmit(e) {
    e.preventDefault()
    try {
-    await axios.put(`http://localhost:3333/students/${id}`, student)
+    await axios.put(`http://localhost:3232/students/${id}`, student)
     history.push("/")
     setOpen(false)
 
