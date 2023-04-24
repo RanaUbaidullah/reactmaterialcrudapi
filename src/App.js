@@ -2,6 +2,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import View from "./components/student/View";
 import Edit from "./components/student/Edit";
+
+                                                        // json-server --watch db.json -p3232
+
 function App() {
   return (
     <>
