@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
-ReactDOM.render(<App />, document.getElementById('root'));
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import { apiSlice } from "./apiSlice";
+ReactDOM.render(
+    <ApiProvider api={apiSlice}>
+<App />
+</ApiProvider>
+, document.getElementById('root'));
 
