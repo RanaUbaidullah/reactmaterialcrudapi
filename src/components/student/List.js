@@ -49,18 +49,14 @@ const List = () => {
     }
     
    useEffect(() => { getAllStudent(); }, [])
-
    const handleDelete = async id => {
- 
          await axios.delete(`http://localhost:3232/students/${id}`);
          var newstudent = students.filter((item) => {
             // console.log(item);
             return item.id !== id;
          })
          setOpen(false)
-
          setStudents(newstudent);
-
    }
  
  
